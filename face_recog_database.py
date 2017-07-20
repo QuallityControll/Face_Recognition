@@ -24,7 +24,7 @@ def update_descriptor(d, person_name, new_descriptor):
         person_database[person_name] = new_descriptor
 
 
-def find_match(d, descriptor, tolerance=0):
+def find_match(d, descriptor, tolerance=0.4):
     """
     :param:
         d:dict
@@ -50,4 +50,4 @@ def find_match(d, descriptor, tolerance=0):
     if best_match_distance < tolerance:
         return best_match_name
     else:
-        return "Person not recognized."
+        return "Not recognized"

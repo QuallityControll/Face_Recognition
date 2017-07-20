@@ -9,21 +9,40 @@ from face_recog_database import update_descriptor, find_match\
 load_dlib_models()
 from dlib_models import models
 
+__all__ = ["camera_detect", "imagefile_detect, detect_faces"]
+
 person_database = {}
 
 tolerance = 0.45
 
 def camera_detect():
+    """
+    Performs detect_faces with camera input
+
+    :return:
+        tuple(detections, shapes, descriptors)
+            detections:list
+            shapes:list
+            descriptors:list
+    """
     pic_array = take_picture()
-    detect_faces(pic_array,person_database)
+    return detect_faces(pic_array,person_database)
 
 def imagefile_detect(file_path):
-    img_array = io.imread(file_path)
-    detect_faces(file_path,person_database)
+    """
+    Performs detect_faces with image input
+    :param:
+        file_path:str
+            path to image file to be processed
 
-# read a picture in as a numpy-array
-img_array = io.imread("pic_file_path")  # ensure this has shape (H, W, 3)
-                                                  # otherwise, fix it!
+    :return:
+        tuple(detections, shapes, descriptors)
+            detections:list
+            shapes:list
+            descriptors:list
+    """
+    img_array = io.imread(file_path)
+    return detect_faces(file_path,person_database)
 
 def detect_faces(img_array,person_database):
     """
@@ -37,10 +56,10 @@ def detect_faces(img_array,person_database):
             database of names and descriptor keys
 
     :return:
-        tuple(names,descriptors,detections)
-            names:list
-            descriptors:list
+        tuple(detections, shapes, descriptors)
             detections:list
+            shapes:list
+            descriptors:list
     """
 
     img_array = take_picture()
@@ -62,6 +81,5 @@ def detect_faces(img_array,person_database):
     for i in range(len(detections)):
         shapes.append(shape_predictor(img_array, detections[i]))
         descriptors.append(np.array(face_rec_model.compute_face_descriptor(img_array, shapes[i])))
-        names.append(find_match(person_database, descriptors[i], tolerance))
 
-    return names, descriptors, detections
+    return detections, shapes, descriptors
