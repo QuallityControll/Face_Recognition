@@ -2,6 +2,7 @@ from dlib_models import load_dlib_models
 import numpy as np
 from camera import take_picture
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 
 load_dlib_models()
 
