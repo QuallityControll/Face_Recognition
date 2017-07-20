@@ -1,9 +1,10 @@
 import dlib_models
 from dlib_models import load_dlib_models
 import numpy as np
+import skimage.io as io
 from camera import take_picture
 import matplotlib.pyplot as plt
-from face_recog_database import update_descriptor, find_match
+from face_recog_database import update_descriptor, find_match\
 
 load_dlib_models()
 from dlib_models import models
@@ -11,6 +12,18 @@ from dlib_models import models
 person_database = {}
 
 tolerance = 0.45
+
+def camera_detect():
+    pic_array = take_picture()
+    detect_faces(pic_array,person_database)
+
+def imagefile_detect(file_path):
+    img_array = io.imread(file_path)
+    detect_faces(file_path,person_database)
+
+# read a picture in as a numpy-array
+img_array = io.imread("pic_file_path")  # ensure this has shape (H, W, 3)
+                                                  # otherwise, fix it!
 
 def detect_faces(img_array,person_database):
     """
