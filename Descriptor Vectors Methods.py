@@ -1,6 +1,5 @@
 from dlib_models import load_dlib_models
 import numpy as np
-from camera import take_picture
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from face_recog_database import update_descriptor, find_match
@@ -9,19 +8,20 @@ load_dlib_models()
 from dlib_models import models
 
 
-def detect_faces_and_boxes(person_database, tolerance=0.4):
+def detect_faces_and_boxes(img_array, person_database, tolerance=0.5):
     """
     This function detects the faces and displays the image with the boxes around the faces looking at the camera
     while also putting their names if they are in the database and if not, it says not recognized
 
     :param
-        person_database: Dictionary
+        img_array: [np.array]
+            A numpy array that represents a picture.
+        person_database: [Dictionary]
             This is the dictionary of names versus the descriptor vectors
-        tolerance:
+        tolerance: [float]
             A level of tolerance of the difference between the people.
     """
 
-    img_array = take_picture()
     fig, ax = plt.subplots()
     ax.imshow(img_array)
 
