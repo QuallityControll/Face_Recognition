@@ -11,13 +11,18 @@ from .face_recog_database import *
 load_dlib_models()
 from dlib_models import models
 
-person_database = {}
-
 tolerance = 0.45
 
-def camera_detect():
+def camera_detect(d):
     """
     Performs detect_faces with camera input
+
+    :param:
+        d:dict
+            keys:str
+                names of people
+            values:np.array
+                vector descriptor
 
     :return:
         tuple(detections, shapes, descriptors)
@@ -26,12 +31,18 @@ def camera_detect():
             descriptors:list
     """
     pic_array = take_picture()
-    return detect_faces(pic_array,person_database)
+    return detect_faces(d,pic_array)
 
-def imagefile_detect(file_path):
+def imagefile_detect(d,file_path):
     """
     Performs detect_faces with image input
     :param:
+        d:dict
+            keys:str
+                names of people
+            values:np.array
+                vector descriptor
+
         file_path:str
             path to image file to be processed
 
@@ -42,9 +53,9 @@ def imagefile_detect(file_path):
             descriptors:list
     """
     img_array = io.imread(file_path)
-    return detect_faces(file_path,person_database)
+    return detect_faces(d,img_array)
 
-def detect_faces(img_array,person_database):
+def detect_faces(d,img_array):
     """
     Given an image, return names and descriptor vectors of found people
 
@@ -52,7 +63,7 @@ def detect_faces(img_array,person_database):
         img_array:np.array
             picture to be processed
 
-        person_database:dict
+        d:dict
             database of names and descriptor keys
 
     :return:
