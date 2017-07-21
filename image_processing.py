@@ -1,15 +1,15 @@
+__all__ = ["camera_detect", "imagefile_detect", "detect_faces"]
+
 import dlib_models
 from dlib_models import load_dlib_models
 import numpy as np
 import skimage.io as io
 from camera import take_picture
 import matplotlib.pyplot as plt
-from face_recog_database import update_descriptor, find_match\
+from .face_recog_database import *
 
 load_dlib_models()
 from dlib_models import models
-
-__all__ = ["camera_detect", "imagefile_detect, detect_faces"]
 
 person_database = {}
 

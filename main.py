@@ -1,7 +1,9 @@
-from face_recog_database import *
-from image_processing import *
+from .image_processing import *
+from .face_recog_database import *
 
 person_database = dict()
+
+__all__ = ["add_picture", "process_image", "process_camera"]
 
 def add_picture(name,file_path):
     """
