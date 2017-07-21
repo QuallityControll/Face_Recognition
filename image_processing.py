@@ -13,16 +13,11 @@ from dlib_models import models
 
 tolerance = 0.45
 
-def camera_detect(d):
+def camera_detect():
     """
     Performs detect_faces with camera input
 
     :param:
-        d:dict
-            keys:str
-                names of people
-            values:np.array
-                vector descriptor
 
     :return:
         tuple(detections, shapes, descriptors)
@@ -31,9 +26,9 @@ def camera_detect(d):
             descriptors:list
     """
     pic_array = take_picture()
-    return detect_faces(d,pic_array)
+    return detect_faces(pic_array)
 
-def imagefile_detect(d,file_path):
+def imagefile_detect(file_path):
     """
     Performs detect_faces with image input
     :param:
@@ -53,9 +48,9 @@ def imagefile_detect(d,file_path):
             descriptors:list
     """
     img_array = io.imread(file_path)
-    return detect_faces(d,img_array)
+    return detect_faces(img_array)
 
-def detect_faces(d,img_array):
+def detect_faces(img_array):
     """
     Given an image, return names and descriptor vectors of found people
 

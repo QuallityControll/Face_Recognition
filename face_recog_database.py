@@ -18,10 +18,12 @@ def update_descriptor(d, person_name, new_descriptor):
             vector description of person's face
     """
     if person_name in d:
-        average_descriptor = 0.5 * (d[person_name] + new_descriptor)
-        d[person_name] = average_descriptor
+        temp = d[person_name][0]*d[person_name][1] + new_descriptor
+        numEntered = d[person_name][0] + 1
+        average_descriptor = temp / numEntered
+        d[person_name] = (numEntered,average_descriptor)
     else:
-        d[person_name] = new_descriptor
+        d[person_name] = (1,new_descriptor)
 
 
 def find_match(d, descriptor, tolerance=0.4):
@@ -42,7 +44,7 @@ def find_match(d, descriptor, tolerance=0.4):
     best_match_distance = 1e+300
 
     for name, vector in d.items():
-        distance = np.sqrt(np.sum((descriptor - vector)**2)) #L2 distance
+        distance = np.sqrt(np.sum((descriptor - vector[1])**2)) #L2 distance
         if distance < best_match_distance:
             best_match_distance = distance
             best_match_name = name
