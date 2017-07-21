@@ -17,5 +17,15 @@ def save_data_as_file(file_path, data):
 
 
 def load_file_as_dict(file_path):
+    """
+    This loads a file as a dictionary.
+
+    :param:
+        file_path: [String]
+            This is the path of the file that you want to load.
+    :return:
+        pickle.load(f): [Dictionary]
+            This is the dictionary stored in the file path provided
+    """
     with open(file_path, 'rb') as f:
         return pickle.load(f)
