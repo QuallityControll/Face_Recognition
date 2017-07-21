@@ -1,10 +1,8 @@
-__all__ = ["camera_detect", "imagefile_detect", "detect_faces"]
+__all__ = ["detect_faces"]
 
 import dlib_models
 from dlib_models import load_dlib_models
 import numpy as np
-import skimage.io as io
-from camera import take_picture
 import matplotlib.pyplot as plt
 from .face_recog_database import *
 
@@ -13,44 +11,7 @@ from dlib_models import models
 
 tolerance = 0.45
 
-def camera_detect():
-    """
-    Performs detect_faces with camera input
-
-    :param:
-
-    :return:
-        tuple(detections, shapes, descriptors)
-            detections:list
-            shapes:list
-            descriptors:list
-    """
-    pic_array = take_picture()
-    return detect_faces(pic_array)
-
-def imagefile_detect(file_path):
-    """
-    Performs detect_faces with image input
-    :param:
-        d:dict
-            keys:str
-                names of people
-            values:np.array
-                vector descriptor
-
-        file_path:str
-            path to image file to be processed
-
-    :return:
-        tuple(detections, shapes, descriptors)
-            detections:list
-            shapes:list
-            descriptors:list
-    """
-    img_array = io.imread(file_path)
-    return detect_faces(img_array)
-
-def detect_faces(img_array):
+def detect_faces(d,img_array):
     """
     Given an image, return names and descriptor vectors of found people
 
@@ -67,9 +28,7 @@ def detect_faces(img_array):
             shapes:list
             descriptors:list
     """
-
-    img_array = take_picture()
-
+    
     face_detect = models["face detect"]
     upscale = 1
 
