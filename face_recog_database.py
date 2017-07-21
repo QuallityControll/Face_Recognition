@@ -21,7 +21,7 @@ def update_descriptor(d, person_name, new_descriptor):
         average_descriptor = 0.5 * (d[person_name] + new_descriptor)
         d[person_name] = average_descriptor
     else:
-        person_database[person_name] = new_descriptor
+        d[person_name] = new_descriptor
 
 
 def find_match(d, descriptor, tolerance=0.4):
