@@ -79,4 +79,4 @@ def detect_faces_and_boxes(img_array, person_database, tolerance=0.5):
         det = detections[i]
         l, r, t, b = det.left(), det.right(), det.top(), det.bottom()
         ax.add_patch(patches.Rectangle((l, t), np.abs(l - r), np.abs(t - b), fill=False))
-        ax.text(l, t, names[i], color="white")
+        ax.text(l, b, names[i], color="white")
