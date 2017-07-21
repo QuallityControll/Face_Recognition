@@ -1,4 +1,4 @@
-person_database
+person_database = dict()
 
 from .image_processing import *
 from .face_recog_database import *
