@@ -8,6 +8,37 @@ load_dlib_models()
 from dlib_models import models
 
 
+def add_person(img_array, d):
+    """
+    This adds 1 person to the specified database dictionary.
+
+    :param:
+        img_array: [np.array]
+            A numpy array that represents a picture.
+        d: [Dictionary]
+            This is the dictionary of names versus the descriptor vectors
+    """
+    face_detect = models["face detect"]
+    upscale = 1
+    detections = face_detect(img_array, upscale)
+    detections = list(detections)
+    if len(detections) > 1:
+        print("Too many people. Only have a single person in the picture")
+        return None
+
+    det = detections[0]
+
+    name = input("What is your name?")
+
+    shape_predictor = models["shape predict"]
+    shape = shape_predictor(img_array, det)
+
+    face_rec_model = models["face rec"]
+
+    descriptor = np.array(face_rec_model.compute_face_descriptor(img_array, shape))
+    d[name] = descriptor
+
+
 def detect_faces_and_boxes(img_array, person_database, tolerance=0.5):
     """
     This function detects the faces and displays the image with the boxes around the faces looking at the camera
