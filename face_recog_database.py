@@ -1,5 +1,13 @@
 import numpy as np
 import pickle
+<<<<<<< HEAD
+
+__all__ = ["update_descriptor", "find_match"]
+
+
+import numpy as np
+=======
+>>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
 
 __all__ = ["update_descriptor", "find_match"]
 
