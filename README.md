@@ -1,3 +1,3 @@
 # Face-Recognition
 
-Recognizes faces
+Recognizes faces in the databse and says unknown if not in database :D
