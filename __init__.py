@@ -5,7 +5,6 @@ from camera import take_picture
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
-<<<<<<< HEAD
 import pickle
 import os
 
@@ -15,15 +14,6 @@ __all__ = ["add_picture", "process_image", "process_camera", "display_names_and_
             "add", "remove", "list_people"]
 
 def add_image(name,img_array):
-=======
-
-
-person_database = dict()
-
-__all__ = ["add_picture", "process_image", "process_camera", "display_names_and_boxes", "identifyMe"]
-
-def add_picture(name,file_path):
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
     """
     Given a name and image of one person, logs person in database.
     If person already exists, it updates, taking the average of the
@@ -35,10 +25,6 @@ def add_picture(name,file_path):
             path to file of image of person
     """
 
-<<<<<<< HEAD
-=======
-    img_array = io.imread(file_path)
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
     detections, shapes, descriptors = detect_faces(person_database,img_array)
 
     if len(descriptors)==0:
@@ -108,21 +94,12 @@ def display_names_and_boxes(img_array, names, detections):
         det = detections[i]
         l, r, t, b = det.left(), det.right(), det.top(), det.bottom()
         ax.add_patch(patches.Rectangle((l, t), np.abs(l - r), np.abs(t - b), fill=False))
-<<<<<<< HEAD
         ax.text(l, b, names[i], color="white")
 
 def identify(file_path = None):
     """
     This function acts as a shortcut for the user. Given a file path,
     the image will be processed to identify any people. Given no argument,
-=======
-        ax.text(l, t, names[i], color="white")
-
-def identifyMe(file_path = None):
-    """
-    This function acts as a shortcut for the user. Given a file path,
-    the identified people will be displayed. Given no argument,
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
     the camera will be used.
 
     :param:
@@ -130,16 +107,12 @@ def identifyMe(file_path = None):
             String representation of path to image file.
     """
     if file_path is None:
-<<<<<<< HEAD
         print("No file path found. Taking picture.")
-=======
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
         img_array, names, detections, shapes, descriptors = process_camera()
     else:
         img_array, names, detections, shapes, descriptors = process_image(file_path)
 
     display_names_and_boxes(img_array,names, detections)
-<<<<<<< HEAD
 
 def add(name = None, file_path = None, folder = False):
     """
@@ -237,5 +210,3 @@ def load(file_path = "database.pkl"):
     with open(file_path, 'rb') as f:
         person_database = pickle.load(f)
     print("Database loaded.")
-=======
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
