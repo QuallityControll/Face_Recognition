@@ -9,11 +9,7 @@ from .face_recog_database import *
 load_dlib_models()
 from dlib_models import models
 
-<<<<<<< HEAD
 tolerance = 0.5
-=======
-tolerance = 0.45
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
 
 def detect_faces(d,img_array):
     """
@@ -32,11 +28,7 @@ def detect_faces(d,img_array):
             shapes:list
             descriptors:list
     """
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 4259b9a2c69e7883e5c2cbda821fd0e6dfb0b76f
     face_detect = models["face detect"]
     upscale = 2
 
