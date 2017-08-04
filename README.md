@@ -11,7 +11,7 @@ If the person/people are in the database: returns "I see (name)" or "I see (name
 
 2) Clone repository into desired file 
 
-3) 
+3) Run setup.py files to run face recognition
 
 # \*Credits
 
