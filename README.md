@@ -1,3 +1,22 @@
 # Face-Recognition
 
-Recognizes faces in the databse and says unknown if not in database :D
+# Recognizes faces - 
+If the person is not in the databse: returns "I see one person I dont recognize" or "I see ____ people I dont recognize".
+
+If the person/people are in the database: returns "I see (name)" or "I see (names)".
+
+# Installation Instuctions:
+
+1) Please install the camera from the following link https://github.com/LLCogWorks2017/Camera * and use the instructions from the link.
+
+2) Clone repository into desired file 
+
+3) 
+
+# \*Credits
+
+Camera
+
+The camera was imported from [Camera](https://github.com/LLCogWorks2017/Camera), Written by [Ryan Soklaski](https://github.com/LLrsokl), lead instructor for the CogWorks 2017 Summer Program at MIT. 
+
+Camera was created for the [Beaver Works Summer Institute at MIT](https://beaverworks.ll.mit.edu/CMS/bw/bwsi)
