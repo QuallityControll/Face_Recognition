@@ -1,19 +1,21 @@
 # Face-Recognition
 
-# Recognizes faces - 
+## Recognizes faces - 
 If the person is not in the databse: returns "I see one person I dont recognize" or "I see ____ people I dont recognize".
 
 If the person/people are in the database: returns "I see (name)" or "I see (names)".
 
-# Installation Instuctions:
+## Installation Instuctions:
 
 1) Please install the camera from the following link https://github.com/LLCogWorks2017/Camera * and use the instructions from the link.
 
 2) Clone repository into desired file 
 
-3) Run setup.py files to run face recognition
+3) Run setup.py files to run face recognition use following command:
 
-# \*Credits
+```python setup.py develop```
+
+### \*Credits
 
 Camera
 
