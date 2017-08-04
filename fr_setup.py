@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 
-
 def do_setup():
     setup(name='face_recognition',
           version="1.0",
