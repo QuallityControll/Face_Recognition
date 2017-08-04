@@ -16,7 +16,8 @@ If the person/people are in the database: returns "I see (name)" or "I see (name
       ```python setup.py develop```
       
 4) Use the command to import the face recognition package (use the following command): 
-      ```import face_recognition as fr```
+     
+     ```import face_recognition as fr```
 
 ### \*Credits
 
