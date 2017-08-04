@@ -17,6 +17,6 @@ If the person/people are in the database: returns "I see (name)" or "I see (name
 
 Camera
 
-The camera was imported from [Camera](https://github.com/LLCogWorks2017/Camera), Written by [Ryan Soklaski](https://github.com/LLrsokl), lead instructor for the CogWorks 2017 Summer Program at MIT. 
+The camera was imported from [Camera](https://github.com/LLCogWorks2017/Camera), developed by [Ryan Soklaski](https://github.com/LLrsokl), lead instructor for the CogWorks 2017 Summer Program at MIT. 
 
 Camera was created for the [Beaver Works Summer Institute at MIT](https://beaverworks.ll.mit.edu/CMS/bw/bwsi)
