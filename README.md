@@ -13,7 +13,7 @@ If the person/people are in the database: returns "I see (name)" or "I see (name
 
 3) Run setup.py files to run face recognition use following command:
 
-      ```python setup.py develop```
+      ```python fr_setup.py develop```
       
 4) Use the command to start the face recognition package after running the setup.py file (use the following command): 
      
