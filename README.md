@@ -1,7 +1,7 @@
 # Face-Recognition
 
 ## Recognizes faces - 
-If the person is not in the databse: returns "I see one person I dont recognize" or "I see ____ people I dont recognize".
+If the person is not in the database: returns "I see one person I dont recognize" or "I see ____ people I dont recognize".
 
 If the person/people are in the database: returns "I see (name)" or "I see (names)".
 
