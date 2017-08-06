@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 def do_setup():
-    setup(name='face_recognition',
+    setup(name='face_recognition_2',
           version="1.0",
           authors='Quallitycontroll',
           description='Facial Recognition',
