@@ -10,7 +10,7 @@ import os
 
 person_database = dict()
 
-__all__ = ["add_picture", "process_image", "process_camera", "display_names_and_boxes", "identifyMe",
+__all__ = ["add_picture", "process_image", "process_camera", "display_names_and_boxes", "identify",
             "add", "remove", "list_people"]
 
 def add_image(name,img_array):
@@ -96,7 +96,7 @@ def display_names_and_boxes(img_array, names, detections):
         ax.add_patch(patches.Rectangle((l, t), np.abs(l - r), np.abs(t - b), fill=False))
         ax.text(l, b, names[i], color="white")
 
-def identify(file_path = None):
+def identify(file_path = None, display_picture = False):
     """
     This function acts as a shortcut for the user. Given a file path,
     the image will be processed to identify any people. Given no argument,
@@ -111,8 +111,10 @@ def identify(file_path = None):
         img_array, names, detections, shapes, descriptors = process_camera()
     else:
         img_array, names, detections, shapes, descriptors = process_image(file_path)
-
-    display_names_and_boxes(img_array,names, detections)
+    
+    if display_picture:
+            display_names_and_boxes(img_array,names, detections)
+    return names
 
 def add(name = None, file_path = None, folder = False):
     """
@@ -160,8 +162,11 @@ def list_people():
     """
     Function lists all people currently in database.
     """
+
+    person_list = []
     for person in person_database:
-        print(person)
+        person_list.append(person)
+    return person_list
 
 def remove(name):
     """
