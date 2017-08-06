@@ -211,7 +211,10 @@ def load(file_path = "database.pkl"):
             return
         else:
             continue
-
-    with open(file_path, 'rb') as f:
-        person_database = pickle.load(f)
-    print("Database loaded.")
+    try:
+        with open(file_path, 'rb') as f:
+            global person_database
+            person_database = pickle.load(f)
+        print("Database loaded.")
+    except:
+        print("Database not available.")
